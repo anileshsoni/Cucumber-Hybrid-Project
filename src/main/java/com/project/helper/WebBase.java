@@ -1,4 +1,4 @@
-package aditya.helper;
+package com.project.helper;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

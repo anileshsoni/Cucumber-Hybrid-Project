@@ -1,8 +1,9 @@
-package aditya.stepDefinition.websteps;
+package com.stepDefinition.websteps;
+
+import com.project.helper.*;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import aditya.helper.*;
 
 public class Action {
 	

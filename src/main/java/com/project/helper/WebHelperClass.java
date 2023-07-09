@@ -1,4 +1,4 @@
-package aditya.helper;
+package com.project.helper;
 
 public class WebHelperClass {
 
