@@ -1,7 +1,6 @@
-@tag
-Feature: My application Login Test Feature
+@LoginTest
+Feature: Para Bank Login Test
 
-  @tag1
+  @test
   Scenario: Test for valid credential login
     Given The user launched the homepage
-    And I clicked on sign in button

@@ -1,25 +1,26 @@
 package com.project.utility;
 
+import org.testng.annotations.*;
+
+import com.project.helper.TestUtils;
+
 import io.cucumber.java.BeforeAll;
-import net.bytebuddy.implementation.bytecode.Throw;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class Hooks {
 	
+	static TestUtils utility = new TestUtils();
 	
-	@BeforeAll
-	public void launchURL(String appUrl) {
-		try {
-			if(appUrl.startsWith("https://")) {
-				FrameworkConstants.browser.get(appUrl);	
-			}
-			else {
-				Throw.valueOf("URL doesn't contain http://`");
-			}
-			
-		} catch (Exception e) {
-			System.out.println("URL Issue: "+e);
-		}
-		
+	@BeforeMethod
+	public static void createDriver() throws Exception{
+		System.out.println("This is before test");
 	}
+
+	@AfterMethod
+    void teardown() {
+		System.out.println("This is After Test");
+        FrameworkConstants.browser.quit();
+    }
 
 }

@@ -1,22 +1,21 @@
 package com.stepDefinition.websteps;
 
+import java.io.IOException;
+
 import com.project.helper.*;
+import com.project.utility.FrameworkConstants;
 
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Action {
-	
-	WebBase base = new WebBase();
+
+	TestUtils utility = new TestUtils();
 	
 	@Given("^The user launched the homepage$")
-	public void launchBrowser() {
-		WebBase.browser = base.createDriver("Chrome");
-		base.openURL("https://www.amazon.in/");
-	}
-	
-	@When("I clicked on sign in button")
-	public void i_clicked_on_sign_in_button() {
-	    System.out.println("Clicked on sign in button");
+	public void launchBrowser() throws IOException {
+		WebDriverManager.chromedriver().setup();
+		FrameworkConstants.browser = WebDriverManager.chromedriver().create();
+		FrameworkConstants.browser.get(utility.getURL());
 	}
 }
