@@ -12,12 +12,15 @@ public class Hooks {
 	
 	static TestUtils utility = new TestUtils();
 	
-	@BeforeMethod
+	@BeforeTest
 	public static void createDriver() throws Exception{
 		System.out.println("This is before test");
+		WebDriverManager.chromedriver().setup();
+		FrameworkConstants.browser = WebDriverManager.chromedriver().create();
+		
 	}
 
-	@AfterMethod
+	@AfterTest
     void teardown() {
 		System.out.println("This is After Test");
         FrameworkConstants.browser.quit();
